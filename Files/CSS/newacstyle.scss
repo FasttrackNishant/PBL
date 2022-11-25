@@ -1,0 +1,230 @@
+@import url("https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Commissioner:wght@200;300;400;500;600&display=swap");
+
+$primary: #233d4d;
+$secondary: #fe7f2d;
+$white: #fdfffc;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 18px;
+}
+
+@mixin title-style() {
+  font-family: "Readex Pro", sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: clamp(32px, 4vw, 46px);
+}
+
+@mixin from-transition($transX, $opacity) {
+  transform: $transX;
+  opacity: $opacity;
+}
+
+main {
+  background-color: $primary;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+
+  font-family: "Commissioner", sans-serif;
+
+  .slide-one {
+    width: 80%;
+    color: white;
+    display: flex;
+    height: 100%;
+    transition: 1s;
+
+    &.slide-move {
+      transform: translateX(25%);
+    }
+    .message {
+      flex: auto;
+      display: flex;
+
+      align-content: center;
+      flex-direction: column;
+
+      align-items: center;
+      justify-content: center;
+      padding: 0 4rem;
+      transition: transform 0.5s, opacity 0.8s;
+
+      .message-caption {
+        height: 255px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        text-align: center;
+      }
+
+      .btn-enter {
+        width: clamp(1rem, 80%, 300px);
+        height: clamp(2rem, 8vh, 80px);
+        font-size: 1.2rem;
+        background: #fe7f2d;
+        color: white;
+        font-weight: 600;
+        border: 1px solid transparent;
+        border-radius: 50px;
+        transition: 0.3s;
+
+        &:hover {
+          cursor: pointer;
+          transform: scale(1.1);
+          box-shadow: 4px 4px 20px #fe7f2d8c;
+        }
+      }
+
+      h1 {
+        @include title-style();
+      }
+
+      p {
+        line-height: 2rem;
+      }
+    }
+  }
+  .slide-two {
+    position: absolute;
+    background: $white;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 60%;
+    overflow: hidden;
+    transition: right 0.8s ease-out;
+
+    &.slide-move {
+      right: 40%;
+    }
+
+    .form-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .form-wrapper {
+      position: absolute;
+      inset: 6vh 10vw;
+      margin: auto;
+
+      .header {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 200px;
+
+        h1 {
+          @include title-style();
+          color: $secondary;
+        }
+
+        nav {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+          gap: 8px;
+
+          .menu-item {
+            width: 2.2rem;
+            height: 2.2rem;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            svg {
+              fill: $primary;
+            }
+
+            &:hover > svg {
+              fill: $secondary;
+            }
+          }
+        }
+      }
+      .input-group {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr) 12vh;
+        gap: 12px;
+
+        .input {
+          display: grid;
+          align-content: end;
+
+          &.forget-password-input {
+            place-items: center;
+          }
+
+          & > .forget-link {
+            text-decoration: none;
+            color: $primary;
+            font-size: 1.2rem;
+            font-weight: 700;
+          }
+
+          label {
+            color: darkgray;
+          }
+
+          input {
+            outline: none;
+            border: 1px solid transparent;
+            border-bottom: 1px solid darkgray;
+            height: 3rem;
+            font-family: "Readex Pro", sans-serif;
+            font-size: 1rem;
+          }
+        }
+        .button-input {
+          place-items: center;
+
+          & > button {
+            width: clamp(1rem, 80%, 300px);
+            height: clamp(2rem, 8vh, 80px);
+            font-size: 1.2rem;
+            background: #fe7f2d;
+            color: white;
+            font-weight: 600;
+            border: 1px solid transparent;
+            border-radius: 50px;
+            transition: 0.3s;
+
+            &:hover {
+              cursor: pointer;
+              transform: scale(1.1);
+              box-shadow: 4px 4px 20px #fe7f2d8c;
+            }
+          }
+        }
+      }
+    }
+
+    .form-wrapper-one,
+    .form-wrapper-two {
+      transition: transform 0.8s, opacity 1.4s;
+    }
+    .form-wrapper-one {
+      &.form-wrapper-hidden {
+        @include from-transition(translateX(200vw), 0);
+      }
+    }
+
+    .form-wrapper-two {
+      &.form-wrapper-hidden {
+        @include from-transition(translateX(-200vw), 0);
+      }
+    }
+  }
+}
