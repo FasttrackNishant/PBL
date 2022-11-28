@@ -1,7 +1,6 @@
 
 /*---Google font---*/
 @import url('../');
-/*---Bases---*/
 *
 {
   margin:0;
@@ -108,7 +107,7 @@ a
 {
   height:100vh;
   width:100vw;
-  background: url('../Images/mainimage.jpg');
+  background: url('../Images/Untitled\ design.png');
 
   /* background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url('../Images/mainimage.jpg'); */
   background-size:cover;
@@ -233,11 +232,6 @@ element.style {
 
 
 /* login page */
-/* ======================================================================== */ 
-
- /*                      NOT RELATED TO THE TTUTORIAL                        */
-
-/* ======================================================================== */
 
 *{
 	margin: 0;
@@ -378,11 +372,6 @@ html, body {
 
 
 
-/* ======================================================================== */ 
-
- /*                      RELATED TO THE TTUTORIAL                        */
-
-/* ======================================================================== */
 
 
 
@@ -401,6 +390,14 @@ background: linear-gradient(to right, #61045F, #61045F);
 
 	padding: 0 2rem;
 	animation: rotate 6s infinite alternate linear;
+}
+
+.bubble img {
+  height: 396px;
+  position: absolute;
+  top: 387px;
+  bottom: 488px;
+  right: 154px;
 }
 
 @keyframes rotate {
@@ -499,22 +496,29 @@ form > input:invalid:not(:placeholder-shown) {
 
 
 form > button {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	text-align: center;
-	color: #f9f9f9;
-	background: #216ce7;
-	border-radius: .5rem;
-	font-family: inherit;
-	font-size: var(--step--2);
-	font-weight: 500;
-	border: none;
-	outline: none;
-	padding: 0 1.8rem;
-	letter-spacing: 2px;
-	cursor: pointer;
-	transition: all .2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  color: #f9f9f9;
+  background: #216ce7;
+  border-radius: .5rem;
+  font-family: inherit;
+  font-size: var(--step--2);
+  font-weight: 500;
+  border: none;
+  outline: none;
+  padding: 0 1.8rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all .2s;
+  width: 127px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: 83px;
+  color: white;
+  text-decoration: none;
 }
 
 form > button:hover {
